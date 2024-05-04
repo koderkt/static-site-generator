@@ -29,7 +29,7 @@ class TextNode:
 
 def text_node_to_html_node(text_node):
     if text_node.text_type == TextType.text_type_text:
-        return LeafNode(value=text_node.text)
+        return LeafNode(None, value=text_node.text)
     if text_node.text_type == TextType.text_type_bold:
         return LeafNode("b", text_node.text)
     if text_node.text_type == TextType.text_type_italic:
@@ -41,5 +41,3 @@ def text_node_to_html_node(text_node):
     if text_node.text_type == TextType.text_type_image:
         return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
     raise ValueError(f"Invalid text type: {text_node.text_type}")
-
-
